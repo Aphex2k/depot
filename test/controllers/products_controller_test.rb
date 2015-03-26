@@ -52,4 +52,12 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
+
+  test "render test" do
+    get :new
+    assert_response :success
+    assert_select 'form div', 5
+    assert_select '.field', 4
+    assert_select 'textarea', 1
+   end
 end
